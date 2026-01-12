@@ -1,0 +1,61 @@
+name: Bydi vue app ci/cd pipeline
+
+on:
+  push:
+    branches: [main]
+env:
+  NODE_VERSION: 24
+  NPM_CACHE: npm
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+      - name: Install node
+        uses: actions/setup-node@v4
+        with:
+          node-version: { { env.NODE_VERSION } }
+          cache: { { env.NPM_CACHE } }
+      - name: Install dependencies
+        run: npm ci
+      - name: Check lint issues
+        run: npm run lint:check
+
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+      - name: Install node
+        uses: actions/setup-node@v4
+        with:
+          node-version: { { env.NODE_VERSION } }
+          cache: { { env.NPM_CACHE } }
+      - name: Install dependencies
+        run: npm ci
+      - name: Run tests
+        run: npm run test
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+      - name: Install node
+        uses: actions/setup-node@v4
+        with:
+          node-version: { { env.NODE_VERSION } }
+          cache: { { env.NPM_CACHE } }
+      - name: Install dependencies
+        run: npm ci
+      - name: build app
+        run: npm run build
+      - name: configure aws credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: arn:aws:iam::123456789012:role/github-actions-role
+          aws-region: us-east-1
+      - name: Deploy to S3
+        run: aws s3 sync dist/ s3://bydi-vue --delete
