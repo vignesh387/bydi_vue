@@ -10,7 +10,9 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "lint:check": "npx eslint"
+    "lint:check": "npx eslint",
+    "test": "vitest",
+    "test:run": "vitest run"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.17",
@@ -34,6 +36,7 @@
     "eslint": "^9.39.2",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-vue": "^10.6.2",
+    "jsdom": "^27.4.0",
     "typescript-eslint": "^8.52.0",
     "vite": "^7.2.4",
     "vite-plugin-vue-devtools": "^8.0.5",
