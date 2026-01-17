@@ -9,7 +9,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "lint:check": "npx eslint"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.17",
