@@ -1,7 +1,7 @@
 <script setup>
 import Textfield from '@/components/ui/CustomTextfield.vue';
-import Button from '@/components/ui/Button.vue';
-import Image from '@/components/ui/Image.vue';
+import Button from '@/components/ui/CustomButton.vue';
+import Image from '@/components/ui/CustomImage.vue';
 import { ImageUrl } from '@/assets/images/ImageUrl'
 import { ref } from 'vue';
 import { useForm } from 'vee-validate';
@@ -9,7 +9,7 @@ import * as yup from 'yup';
 import Api from '@/api/api';
 import { LoginDetailsApi } from '@/utils/api-details';
 import { ApiMethods } from '@/types/common.types';
-import Spinner from '@/components/ui/Spinner.vue';
+import Spinner from '@/components/ui/CustomSpinner.vue';
 import { useProfileStore } from '@/store/profile';
 import { useRouter, useRoute } from 'vue-router';
 import { toast } from 'vue3-toastify';

@@ -1,8 +1,8 @@
 import { useProfileStore } from "@/store/profile";
-import Login from "@/views/Login/Login.vue";
+import Login from "@/views/Login/UserLogin.vue";
 import NotificationList from "@/views/NotificationList/NotificationList.vue";
 import PaymentTypes from "@/views/Payment/PaymentTypes.vue";
-import Signup from "@/views/Signup/Sign-up.vue";
+import Signup from "@/views/Signup/SignUp.vue";
 import { createRouter, createWebHistory } from "vue-router";
 
 const routes = [

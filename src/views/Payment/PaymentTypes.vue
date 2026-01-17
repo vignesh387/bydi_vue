@@ -10,10 +10,10 @@
 </template>
 
 <script setup lang='ts'>
-import Button from '@/components/ui/Button.vue';
+import Button from '@/components/ui/CustomButton.vue';
 import { useFetchPaymentDetails } from '@/composables/useFetchPaymentDetails';
 import { ref, watchEffect } from 'vue';
-import Modal from '@/components/ui/Modal.vue';
+import Modal from '@/components/ui/CustomModal.vue';
 
 const { loading, data } = useFetchPaymentDetails();
 const showModal = ref(false)
