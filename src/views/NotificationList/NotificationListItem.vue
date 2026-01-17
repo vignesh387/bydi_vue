@@ -8,7 +8,8 @@
         </div>
         <p className=" text-[14px] mt-3">{{ body }}</p>
 
-        <div v-show="isRead"
+        <div
+v-show="isRead"
             className=" bg-primary w-[50px] h-6 rounded-1 text-white font-medium text-[13px] ml-auto flex justify-center items-center">
             New
         </div>

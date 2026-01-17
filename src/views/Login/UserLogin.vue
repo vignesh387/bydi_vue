@@ -21,7 +21,7 @@ const profileStore = useProfileStore();
 const router = useRouter();
 const route = useRoute();
 
-const { handleSubmit, errors } = useForm({
+const { handleSubmit } = useForm({
   validationSchema: yup.object().shape({
     mobNo: yup.string().test('len', 'Mobile no should start with 05', (val) => val.startsWith('05')).required('Mobile no required'),
     password: yup.string().required('password is required').min(8, 'password should contains atleast 8 characters')
@@ -51,7 +51,7 @@ const onSubmit =
         profilePic: response.profilePicUri ?? null
       });
       router.replace(route.query.redirectTo || '/payment-types')
-    } catch (error) {
+    } catch {
       loading.value = false;
       toast.error(DATA_FETCH_NOT_SUCCESSFULL)
     }
@@ -64,7 +64,7 @@ const onSubmit =
     <form class=" max-sm:mx-4 sm:w-[500px] p-5 rounded-3xl border-[1.5px] border-[#e4e4e4]" @submit.prevent="onSubmit">
       <h1 class=" text-2xl font-medium text-center my-6">Login</h1>
       <div class=" flex justify-center mb-7">
-        <Image v-bind:url="ImageUrl.BydiLogoUrl" width=" w-[250px]" alt="bydi-logo" />
+        <Image :url="ImageUrl.BydiLogoUrl" width=" w-[250px]" alt="bydi-logo" />
       </div>
 
       <div class=" flex flex-col gap-4">

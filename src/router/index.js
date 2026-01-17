@@ -2,15 +2,15 @@ import { useProfileStore } from "@/store/profile";
 import Login from "@/views/Login/Login.vue";
 import NotificationList from "@/views/NotificationList/NotificationList.vue";
 import PaymentTypes from "@/views/Payment/PaymentTypes.vue";
-import Register from "@/views/Signup/Register.vue";
+import Signup from "@/views/Signup/Sign-up.vue";
 import { createRouter, createWebHistory } from "vue-router";
 
 const routes = [
   { path: "/", component: Login, name: "Login" },
   {
-    path: "/register",
-    component: Register,
-    name: "Register",
+    path: "/signup",
+    component: Signup,
+    name: "Signup",
   },
   {
     path: "/notification-list",

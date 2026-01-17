@@ -18,7 +18,7 @@ export function useFetchPaymentDetails() {
       });
       loading.value = false;
       data.value = response;
-    } catch (error) {
+    } catch {
       loading.value = false;
       toast.error(DATA_FETCH_NOT_SUCCESSFULL);
     }

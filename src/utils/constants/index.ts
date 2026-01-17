@@ -1,18 +1,3 @@
-// import {
-//   extra_class_icon,
-//   file_pen_dark_gray_icon,
-//   folder_dark_gray_icon,
-//   graduation_gray_icon,
-//   hand_dark_gray_icon,
-//   highway_class_icon,
-//   independent_training,
-//   money_dark_gray_icon,
-//   night_class_icon,
-//   reader_dark_gray_icon,
-//   road_training_icon,
-//   yard_training_icon,
-// } from "../../assets/icons/icons-url";
-// import { PaymentStatusModalType } from "../../pages/Enrollment/interface";
 import {
   CustomErrorTypes,
   ShiftTypeProps,
@@ -232,7 +217,7 @@ export const NumberRegex: RegExp = /^[0-9]*$/;
 export const MobileNumberRegex: RegExp =
   /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
 export const EmaiRegEx: RegExp =
-  /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
 
 export const PaymentDetailData: string[] = [
   "Bin Yaber Charges",

@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import axios, { AxiosError } from "axios";
 import { BaseUrl, RefreshTokenApi } from "@/utils/api-details";
-import { ApiServiceProps, ApiRequestProps } from "@/types/common.types";
+import { ApiServiceProps } from "@/types/common.types";
 import { useProfileStore } from "@/store/profile";
 // import { removeStudentInfo, setTokens } from "../redux/persist-slice";
 
@@ -51,7 +51,7 @@ const checkRefreshToken = async (url: string): Promise<string> => {
     });
     profileStore.setTokens(data?.accessToken, data?.refreshToken);
     return Promise.resolve(data?.accessToken);
-  } catch (e) {
+  } catch {
     return Promise.reject("Refresh Token Error");
   }
 };
@@ -92,7 +92,9 @@ const Api = async ({
 }: ApiServiceProps): Promise<any> => {
   const BASE_URL = BaseUrl.production;
 
-  !isTajdeedApi && interceptAxios(BASE_URL, isEmployee);
+  if (!isTajdeedApi) {
+    interceptAxios(BASE_URL, isEmployee);
+  }
 
   const response = data
     ? await axios

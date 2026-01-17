@@ -1,6 +1,7 @@
 <template>
     <div className=" lg:w-[860px] mx-4 lg:mx-auto my-4 gap-3 flex flex-col">
-        <NotificationListItem v-for="item in notificationList" :title="item.title" :body="item.body"
+        <NotificationListItem
+v-for="item in notificationList" :key="item.id" :title="item.title" :body="item.body"
             :created-on="item.createdOn" :is-read="item.isRead" />
     </div>
     <Spinner v-show="isLoading" />
@@ -9,10 +10,10 @@
 <script setup lang='ts'>
 import Api from '@/api/api';
 import { NotificationListApi } from '@/utils/api-details';
-import { onMounted, ref, watch } from 'vue';
+import { onMounted, ref } from 'vue';
 import NotificationListItem from './NotificationListItem.vue';
 import { toast } from 'vue3-toastify';
-import Spinner from '@/components/ui/Spinner.vue';
+import Spinner from '@/components/ui/CustomSpinner.vue';
 import { DATA_FETCH_NOT_SUCCESSFULL } from '@/utils/constants';
 
 const notificationList = ref([]);
@@ -29,7 +30,7 @@ async function getNotifications() {
         isLoading.value = false
         notificationList.value = response.data;
 
-    } catch (error) {
+    } catch {
         isLoading.value = false
         toast.error(DATA_FETCH_NOT_SUCCESSFULL)
     }

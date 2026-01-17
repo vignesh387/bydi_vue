@@ -15,6 +15,6 @@
   })
 </script>
 <template>
-    <img v-bind:src="url" :alt :class="[width]">
+    <img :src="url" :alt :class="[width]">
 </template>
 <style scoped></style>

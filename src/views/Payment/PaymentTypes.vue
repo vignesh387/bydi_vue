@@ -12,16 +12,12 @@
 <script setup lang='ts'>
 import Button from '@/components/ui/Button.vue';
 import { useFetchPaymentDetails } from '@/composables/useFetchPaymentDetails';
-import { onMounted, ref, watchEffect } from 'vue';
+import { ref, watchEffect } from 'vue';
 import Modal from '@/components/ui/Modal.vue';
 
 const { loading, data } = useFetchPaymentDetails();
 const showModal = ref(false)
 const inputRef = ref(null);
-
-function toggleModal() {
-    showModal.value = !showModal.value
-}
 
 function focusInput() {
     inputRef.value?.focus()
