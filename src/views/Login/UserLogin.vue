@@ -1,5 +1,5 @@
 <script setup>
-import Textfield from '@/components/ui/Textfield.vue';
+import Textfield from '@/components/ui/CustomTextfield.vue';
 import Button from '@/components/ui/Button.vue';
 import Image from '@/components/ui/Image.vue';
 import { ImageUrl } from '@/assets/images/ImageUrl'
